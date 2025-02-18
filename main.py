@@ -40,7 +40,7 @@ if __name__ == "__main__":
     # also: getfloat, getint, getboolean
 
     # read current version
-    with open('./_version_.txt', 'r') as version_file:
+    with open(file='./_version_.txt', encoding='utf-8', mode='r') as version_file:
         version = version_file.read()
     version = version.rstrip("\n\r")
 
