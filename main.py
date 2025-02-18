@@ -20,11 +20,13 @@ from faker import Faker
 # =======================================================
 # helpers
 
+
 def helping_function():
     """
     blablabla
     """
     return
+
 
 # =======================================================
 # main loop
@@ -37,12 +39,18 @@ if __name__ == "__main__":
     max_delay = config.getint('alive_check', 'max_delay')
     # also: getfloat, getint, getboolean
 
-    print("Hello, [bold magenta]World[/bold magenta]!", ":thumbs_up:")
+    # read current version
+    with open('./_version_.txt', 'r') as version_file:
+        version = version_file.read()
+    version = version.rstrip("\n\r")
+
+    print(version, "\n")
+    print("Hello, [bold magenta]World[/bold magenta]!", ":thumbs_up:", "\n")
 
     fake = Faker()
     print(fake.name())
     print(fake.address())
-    print(fake.text(),)
+    print(fake.text(), "\n")
 
     for i in tqdm(range(1000)):
         sleep(0.005)

@@ -11,3 +11,6 @@
   + `poetry remove rich` will remove a dependency
   + `poetry show` lists the dependencies
 
++ task & Taskfile.yml replace make/makefile to automate things
+  + task version updates a local _version_.txt file that reflects the current git branch/tag/commit hash to be displayed at runtime
+  + task format uses black to reformat the source code files

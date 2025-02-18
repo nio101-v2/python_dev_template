@@ -1,10 +1,14 @@
 version: '3'
 
 tasks:
-  hello:
+  version:
     cmds:
-      - echo 'Hello World from Task!'
-      - version=$(git describe --tags --long|awk -F  "-" '{print $1"-"$2}')
-      - date=$(date "+%d/%m/%Y %H:%M")
-      - echo "$version ($date)"> _version_.txt
-    silent: false
+      - python update_version.py
+    silent: true
+  format:
+    cmds:
+      - black --skip-string-normalization .
+    silent: true
+  update:
+    deps: [version, format]
+    silent: true

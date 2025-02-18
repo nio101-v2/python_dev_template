@@ -2,9 +2,10 @@
 # coding: utf-8
 
 """
-main template
+version update
 
-provides a skeleton/sample file
+updates a local _version_.txt file with the git version info
+nicolas.barthe@orange.com
 """
 
 # =======================================================
@@ -14,21 +15,17 @@ from rich import print
 from git import Repo
 
 # =======================================================
-# helpers
-
-def helping_function():
-    """
-    blablabla
-    """
-    return
-
-# =======================================================
 # main loop
 
 if __name__ == "__main__":
     repo = Repo(search_parent_directories=True)
-    version_string = str(repo.head.reference) + ' / ' + str(repo.tags) + ' #' + repo.head.object.hexsha
+    version_string = (
+        str(repo.head.reference)
+        + ' '
+        + str(repo.tags[0])
+        + ' #'
+        + repo.head.object.hexsha
+    )
+    print(version_string)
     with open('./_version_.txt', 'w') as version_file:
         version_file.write(version_string)
-    print(version_string)
-    print("done.")
