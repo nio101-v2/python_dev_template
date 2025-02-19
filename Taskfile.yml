@@ -20,7 +20,7 @@ tasks:
     ignore_error: true
   docs:
     cmds:
-      - python -c "from rich import print;print('[sky_blue2]analyzing with vulture[/sky_blue2]')"
+      - python -c "from rich import print;print('[sky_blue2]building static documentation[/sky_blue2]')"
       - mkdocs build
     silent: true
   update:
