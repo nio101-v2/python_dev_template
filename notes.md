@@ -1,4 +1,4 @@
-# requirements
+# install
 
 + install a recent python stable release (perhaps not the very last one but the previous, to ensure module availability)
   + see https://devguide.python.org/versions/ and https://www.python.org/downloads/
@@ -8,14 +8,17 @@
 + install poetry https://python-poetry.org/ : `pip install poetry`
 + disable virtual env `poetry config virtualenvs.create false`
 + now `poetry install` will install/update the required tools/dependencies in the current env
-  + note that :
-    + `poetry add rich` will add a new dependency
+
+# use
+
++ use poetry to handle dependencies:
+    + `poetry add rich` will install and add a new dependency
     + `poetry remove rich` will remove a dependency
     + `poetry show` lists the dependencies
       + you can also update manually pyproject.toml
 
-+ task & Taskfile.yml replace make/makefile to help at automating things
-  + `task version` updates a local _version_.txt file that reflects the current git branch/tag/commit hash to be displayed at runtime
-  + `task format` uses black to reformat the source code files
-    + remember to use `git tag v2.1` to tag your commit
++ use task & Taskfile.yml to automate things:
+  + use `task update` before any commit, as it chains the following actions:
+    + `task version` updates a local _version_.txt file that reflects the current git branch/tag/commit hash to be displayed at runtime
+    + `task format` uses black to reformat the source code files
 

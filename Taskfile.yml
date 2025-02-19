@@ -3,12 +3,33 @@ version: '3'
 tasks:
   version:
     cmds:
+      - python -c "from rich import print;print('[sky_blue2]updating version file[/sky_blue2]')"
       - python update_version.py
     silent: true
   format:
     cmds:
+      - python -c "from rich import print;print('[sky_blue2]reformatting with black[/sky_blue2]')"
       - black --skip-string-normalization .
     silent: true
+  lint:
+    cmds:
+      - python -c "from rich import print;print('[sky_blue2]analyzing with pylint[/sky_blue2]')"
+      - pylint --disable=R,C ./
+    silent: true
+    ignore_error: true
+  find_dead_code:
+    cmds:
+      - python -c "from rich import print;print('[sky_blue2]analyzing with vulture[/sky_blue2]')"
+      - vulture .
+    silent: true
+    ignore_error: true
   update:
-    deps: [version, format]
+    # run in //:
+    # deps: [format, lint, version]
+    # run in sequential order:
+    cmds:
+      - task: format
+      - task: lint
+      - task: find_dead_code
+      - task: version
     silent: true
