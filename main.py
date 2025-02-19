@@ -12,10 +12,12 @@ provides a skeleton/sample file
 
 import configparser
 import pandas
-from rich import print
 from tqdm import tqdm
 from time import sleep
 from faker import Faker
+from rich.console import Console
+import mymodule.tools as tools
+import mymodule.rules as rules
 
 # =======================================================
 # helpers
@@ -32,6 +34,8 @@ def helping_function():
 # main loop
 
 if __name__ == "__main__":
+    console = Console()
+
     # read .ini config file
     config = configparser.ConfigParser()
     config.read("config.ini")
@@ -39,20 +43,26 @@ if __name__ == "__main__":
     max_delay = config.getint('alive_check', 'max_delay')
     # also: getfloat, getint, getboolean
 
-    # read current version
-    with open(file='./_version_.txt', encoding='utf-8', mode='r') as version_file:
-        version = version_file.read()
-    version = version.rstrip("\n\r")
+    # retrieve and show current local GIT version
+    console.print(
+        tools.get_version(), style="orange_red1", highlight=False, markup=False
+    )
+    # markup is set to false to prevent tag being interpreted as a markup by rich
+    # see https://github.com/textualize/rich/blob/master/FAQ.md#why-does-content-in-square-brackets-disappear
+    console.print("\n[bold magenta]Hello, World![/bold magenta]\n")
 
-    print(version, "\n")
-    print("Hello, [bold magenta]World[/bold magenta]!", ":thumbs_up:", "\n")
-
+    # print some fake info
     fake = Faker()
-    print(fake.name())
-    print(fake.address())
-    print(fake.text(), "\n")
+    console.print(fake.name())
+    console.print(fake.address())
+    console.print(fake.text(), "\n")
 
+    # and some fake progress bar
     for i in tqdm(range(1000)):
         sleep(0.005)
 
-    print("done.")
+    # use a function from mymodule
+    new_value = rules.rule_one(1)
+
+    # done
+    console.print("\n[bold magenta]done![/bold magenta] :thumbs_up:")

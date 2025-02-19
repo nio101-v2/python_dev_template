@@ -19,6 +19,7 @@
 
 + use task & Taskfile.yml to automate things:
   + use `task update` before any commit, as it chains the following actions:
-    + `task version` updates a local _version_.txt file that reflects the current git branch/tag/commit hash to be displayed at runtime
-    + `task format` uses black to reformat the source code files
+    + reformatting source code with black
+    + analyzing with pylint
+    + analyzing with vulture
 

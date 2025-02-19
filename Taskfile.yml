@@ -1,11 +1,6 @@
 version: '3'
 
 tasks:
-  version:
-    cmds:
-      - python -c "from rich import print;print('[sky_blue2]updating version file[/sky_blue2]')"
-      - python update_version.py
-    silent: true
   format:
     cmds:
       - python -c "from rich import print;print('[sky_blue2]reformatting with black[/sky_blue2]')"
@@ -14,7 +9,7 @@ tasks:
   lint:
     cmds:
       - python -c "from rich import print;print('[sky_blue2]analyzing with pylint[/sky_blue2]')"
-      - pylint --disable=R,C ./
+      - pylint --recursive=y --disable=R,C ./
     silent: true
     ignore_error: true
   find_dead_code:
@@ -31,5 +26,4 @@ tasks:
       - task: format
       - task: lint
       - task: find_dead_code
-      - task: version
     silent: true
