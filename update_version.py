@@ -24,10 +24,10 @@ if __name__ == "__main__":
         # note : we are escaping the first bracket because :
         # https://rich.readthedocs.io/en/latest/markup.html#escaping
     else:
-        tag = str(repo.tags[0])
+        tag = r'\[' + str(repo.tags[0]) + r']'
     version_string = (
         str(repo.head.reference) + ' ' + tag + ' #' + repo.head.object.hexsha
     )
-    console.print(version_string, style="orange_red1")
+    console.print(version_string, style="orange_red1", highlight=False)
     with open('./_version_.txt', 'w') as version_file:
         version_file.write(version_string)

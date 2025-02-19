@@ -17,4 +17,5 @@
 + task & Taskfile.yml replace make/makefile to help at automating things
   + `task version` updates a local _version_.txt file that reflects the current git branch/tag/commit hash to be displayed at runtime
   + `task format` uses black to reformat the source code files
+    + remember to use `git tag v2.1` to tag your commit
 
