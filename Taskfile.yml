@@ -18,12 +18,18 @@ tasks:
       - vulture .
     silent: true
     ignore_error: true
+  docs:
+    cmds:
+      - python -c "from rich import print;print('[sky_blue2]analyzing with vulture[/sky_blue2]')"
+      - mkdocs build
+    silent: true
   update:
     # run in //:
     # deps: [format, lint, version]
-    # run in sequential order:
+    # or run in sequential order:
     cmds:
       - task: format
       - task: lint
       - task: find_dead_code
+      - task: docs
     silent: true

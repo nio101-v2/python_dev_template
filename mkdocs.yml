@@ -5,6 +5,13 @@ theme:
 
 site_dir: "public"
 
+nav:
+  - welcome: index.md
+  - main.py: main.md
+  - mymodule: mymodule.md
+  - mymodule/rules.py: rules.md
+  - mymodule/tools.py: tools.md
+
 plugins:
 - search
 - mkdocstrings

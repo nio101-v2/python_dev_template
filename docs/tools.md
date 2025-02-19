@@ -1,3 +1,3 @@
-# `mymodule/tools`
+# `mymodule/tools.py`
 
 ::: mymodule.tools
