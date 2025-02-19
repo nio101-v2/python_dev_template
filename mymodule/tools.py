@@ -12,6 +12,9 @@ various functions
 
 from git import Repo
 import arrow
+import logging
+
+log = logging.getLogger(__name__)
 
 
 # =======================================================
@@ -21,6 +24,7 @@ def get_version():
     repo = Repo(search_parent_directories=True)
     commit_date = arrow.get(repo.commit("main").committed_date).to('local')
     if len(repo.tags) == 0:
+        log.warning("get_version(): warning: no tag set for local git repo")
         tag = 'no_tag'
     else:
         tag = repo.tags[0]

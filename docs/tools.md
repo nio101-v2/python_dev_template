@@ -1,0 +1,3 @@
+# `mymodule/tools`
+
+::: mymodule.tools
