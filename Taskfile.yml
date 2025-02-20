@@ -23,11 +23,17 @@ tasks:
       - python -c "from rich import print;print('[sky_blue2]building static documentation[/sky_blue2]')"
       - mkdocs build
     silent: true
+  test:
+    cmds:
+      - python -c "from rich import print;print('[sky_blue2]testing doctest from docstrings[/sky_blue2]')"
+      - pytest --doctest-modules
+    silent: true
   update:
     # run in //:
     # deps: [format, lint, version]
     # or run in sequential order:
     cmds:
+      - task: test
       - task: format
       - task: lint
       - task: find_dead_code

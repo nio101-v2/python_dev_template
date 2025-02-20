@@ -19,6 +19,9 @@
     + `poetry show` lists the dependencies
       + you can also update manually pyproject.toml
 
++ use doctest to implement basic function testing
+  + use `task test` to pass the tests from the docstrings
+
 + use task & Taskfile.yml to automate things:
   + use `task update` before any commit, as it chains the following actions:
     + reformatting source code with black
@@ -70,3 +73,20 @@
   + une seule branche : main et on peut travailler chacun sur des parties différentes en //
   + contrainte : toujours faire un checkout avant de faire un commit/push
   + si pas de téléscopage de push et si pas de travail en // sur les mêmes fichiers, pas de soucis...
+
++ utiliser doctest pour faire du test unitaire basique :
+```python
+D:\python\python_dev_template>python
+Python 3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from mymodule.rules import rule_one
+>>> rule_one(5)
+rule #1: warning!
+6
+>>> rule_one(7)
+rule #1: warning!
+8
+>>>
+```
+  + copier les exemples passés manuellement dans l'interpréteur dans les docstrings de la fonction.
+  + faire un `task test`

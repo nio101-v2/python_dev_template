@@ -22,4 +22,5 @@ dependencies = [
     "vulture (>=2.14,<3.0)",
     "mkdocstrings-python (>=1.16.1,<2.0.0)",
     "mkdocs-material (>=9.6.4,<10.0.0)",
+    "pytest (>=8.3.4,<9.0.0)",
 ]

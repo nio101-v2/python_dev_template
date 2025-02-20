@@ -452,14 +452,38 @@
     <div class="doc doc-contents ">
 
         <p>implement rule #1</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>rule_one(5)
+6
+rule_one(7)
+8</p>
+</blockquote>
+</blockquote>
+</blockquote>
 
             <details class="quote">
               <summary>Source code in <code>mymodule\rules.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rule_one</span><span class="p">(</span><span class="n">input_value</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;implement rule #1&quot;&quot;&quot;</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rule_one</span><span class="p">(</span><span class="n">input_value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    implement rule #1</span>
+
+<span class="sd">    &gt;&gt;&gt; rule_one(5)</span>
+<span class="sd">    6</span>
+<span class="sd">    &gt;&gt;&gt; rule_one(7)</span>
+<span class="sd">    8</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;rule #1: warning!&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">input_value</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div></td></tr></table></div>
